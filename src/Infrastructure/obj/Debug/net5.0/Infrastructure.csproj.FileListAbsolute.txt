@@ -1,0 +1,12 @@
+C:\Development\Git\MapaCovid\src\Infrastructure\obj\Debug\net5.0\Infrastructure.csprojAssemblyReference.cache
+C:\Development\Git\MapaCovid\src\Infrastructure\obj\Debug\net5.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\Git\MapaCovid\src\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Development\Git\MapaCovid\src\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfo.cs
+C:\Development\Git\MapaCovid\src\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Development\Git\MapaCovid\src\Infrastructure\bin\Debug\net5.0\Infrastructure.deps.json
+C:\Development\Git\MapaCovid\src\Infrastructure\bin\Debug\net5.0\Infrastructure.dll
+C:\Development\Git\MapaCovid\src\Infrastructure\bin\Debug\net5.0\ref\Infrastructure.dll
+C:\Development\Git\MapaCovid\src\Infrastructure\bin\Debug\net5.0\Infrastructure.pdb
+C:\Development\Git\MapaCovid\src\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
+C:\Development\Git\MapaCovid\src\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
+C:\Development\Git\MapaCovid\src\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb
