@@ -273,6 +273,15 @@
           }
         }
       },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "SharpCompress/0.23.0": {
         "type": "package",
         "dependencies": {
@@ -880,6 +889,33 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "SharpCompress/0.23.0": {
       "sha512": "HBbT47JHvNrsZX2dTBzUBOSzBt+EmIRGLIBkbxcP6Jef7DB4eFWQX5iHWV3Nj7hABFPCjISrZ8s0z72nF2zFHQ==",
       "type": "package",
@@ -1153,6 +1189,8 @@
       "Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.0",
       "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 5.0.0",
+      "MongoDB.Driver >= 2.12.3",
+      "Newtonsoft.Json >= 13.0.1",
       "Swashbuckle.AspNetCore >= 5.6.3",
       "Web >= 1.0.0"
     ]
@@ -1164,11 +1202,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Development\\Git\\MapaCovid\\src\\Api\\Api.csproj",
+      "projectUniqueName": "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "C:\\Development\\Git\\MapaCovid\\src\\Api\\Api.csproj",
+      "projectPath": "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Api\\Api.csproj",
       "packagesPath": "C:\\Users\\thomas.rodrigues\\.nuget\\packages\\",
-      "outputPath": "C:\\Development\\Git\\MapaCovid\\src\\Api\\obj\\",
+      "outputPath": "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -1189,11 +1227,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj"
+            "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj"
             },
-            "C:\\Development\\Git\\MapaCovid\\src\\Web\\Web.csproj": {
-              "projectPath": "C:\\Development\\Git\\MapaCovid\\src\\Web\\Web.csproj"
+            "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Web\\Web.csproj": {
+              "projectPath": "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Web\\Web.csproj"
             }
           }
         }
@@ -1222,6 +1260,14 @@
               "NU1605"
             ]
           },
+          "MongoDB.Driver": {
+            "target": "Package",
+            "version": "[2.12.3, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.1, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[5.6.3, )"
@@ -1245,7 +1291,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

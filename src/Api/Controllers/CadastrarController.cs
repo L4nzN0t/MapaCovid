@@ -1,6 +1,7 @@
 using System;
 using Api.Services;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 using Web.Models;
 
 
@@ -9,11 +10,11 @@ namespace _Api.Controllers
     [ApiController]
     public class CadastrarController : Controller
     {
-        private readonly IServiceRepository _serviceRepository;
+        private readonly IServiceRepository _service;
         
-        public CadastrarController(IServiceRepository serviceRepository)
+        public CadastrarController(IServiceRepository service)
         {
-            _serviceRepository = serviceRepository;
+            _service = service;
         }
 
         [Route("/Cadastrar")]
@@ -28,14 +29,14 @@ namespace _Api.Controllers
         {
             try 
             {
-                _serviceRepository.Adicionar();
+                _service.Adicionar(pessoaViewModelInput);
+                return StatusCode(200,"Deu certo!");
             }
-            catch
+            catch (Exception ex)
             {
-
+                return StatusCode(400,"Erro!");
+                throw new Exception("Erro desconhecido!", ex);
             }
-            
-            return StatusCode(200,"Deu certo!");
         }
     }
 }

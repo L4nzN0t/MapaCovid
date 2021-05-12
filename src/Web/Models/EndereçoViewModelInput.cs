@@ -8,5 +8,6 @@ namespace Web.Models
         public int Cep {get;set;}
         public string Cidade {get;set;}
         public string Estado {get;set;}
+        public CoordenadasViewModelInput coordenadasViewModelInput {get;set;}
     }
 }

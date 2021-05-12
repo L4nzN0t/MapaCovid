@@ -55,3 +55,4 @@ C:\Development\Git\MapaCovid\src\Api\bin\Debug\net5.0\Web.exe
 C:\Development\Git\MapaCovid\src\Api\bin\Debug\net5.0\Api.StaticWebAssets.xml
 C:\Development\Git\MapaCovid\src\Api\bin\Debug\net5.0\Web.dll
 C:\Development\Git\MapaCovid\src\Api\bin\Debug\net5.0\Web.pdb
+C:\DEVELOPMENT\Git\MapaCovid\src\Api\bin\Debug\net5.0\Newtonsoft.Json.dll

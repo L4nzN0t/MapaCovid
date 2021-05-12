@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Infrasctructure.Database.Collections;
 using Web.Models;
 
 namespace Api.Repositories
 {
     public interface IRepository
     {
-        void Create<TDocument>(PessoaViewModelInput _pessoaViewModelInput);
-        List<Type> GetAll();
+        void Create(Pessoa pessoa);
+        List<Pessoa> GetAll();
     }
 }

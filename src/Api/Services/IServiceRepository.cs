@@ -1,10 +1,10 @@
 using System;
+using Web.Models;
 
 namespace Api.Services
 {
     public interface IServiceRepository
     {
-        Type PrepareToAdd();
-        void Adicionar();
+        void Adicionar(PessoaViewModelInput pessoaViewModelInput);
     }
 }

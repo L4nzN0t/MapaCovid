@@ -2,7 +2,6 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Infrastructure.Database.Collections
 {
-    [BsonDiscriminator]
     public class Endereço : Coordenadas
     {
         public string Rua {get;set;}
@@ -11,6 +10,5 @@ namespace Infrastructure.Database.Collections
         public int Cep {get;set;}
         public string Cidade {get;set;}
         public string Estado {get;set;}
-        //public Coordenadas Coordenadas {get;set;}
     }
 }
