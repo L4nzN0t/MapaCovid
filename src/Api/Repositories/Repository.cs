@@ -1,14 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Infrasctructure.Database.Collections;
 using Infrastructure.Database;
 using MongoDB.Driver;
-
+using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace Api.Repositories
 {
     public class Repository : IRepository
     {
+        private const string Infectado = "Infectado";
+        private const string Vacinado = "Vacinado";
+
         private readonly IMongoConnect _mongoConnect;
         private readonly IMongoCollection<Pessoa> _List;
         private readonly FilterDefinition<Pessoa> _filter;
@@ -49,7 +53,7 @@ namespace Api.Repositories
         {
             try
             {
-                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == "Infectado")).ToList();
+                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == Infectado)).ToList();
             }
             catch
             {
@@ -61,7 +65,19 @@ namespace Api.Repositories
         {
             try
             {
-                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == "Vacinado")).ToList();
+                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == Vacinado)).ToList();
+            }
+            catch
+            {
+                throw new MongoException("Erro ao inserir buscar informações");
+            }
+        }
+
+        public List<GeoJson2DGeographicCoordinates> GetLocations()
+        {
+            try
+            {
+                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == Infectado)).ToList().Select(p => p.Localização).ToList();
             }
             catch
             {

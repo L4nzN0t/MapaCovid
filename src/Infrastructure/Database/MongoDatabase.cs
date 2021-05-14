@@ -2,7 +2,6 @@ using System;
 using Infrasctructure.Database.Collections;
 using Infrastructure.Database.Collections;
 using Microsoft.Extensions.Configuration;
-using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson.Serialization.IdGenerators;

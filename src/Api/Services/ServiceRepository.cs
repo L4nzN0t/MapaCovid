@@ -41,6 +41,13 @@ namespace Api.Services
             vacinados = temp.Count;
         }
 
+        public void RetornaMapeamentoInfectados()
+        {
+            var temp = _repository.GetLocations();
+            var amr = temp[1].Values.ToString();
+            
+        }
+
     }
 
     

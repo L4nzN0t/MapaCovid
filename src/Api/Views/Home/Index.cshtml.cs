@@ -15,11 +15,22 @@ namespace Api.Views.Home
             _service = service;
             _service.RetornaTotalInfectados(out _numeroInfectados);
             _service.RetornaTotalVacinados(out _numeroVacinados);
+            _totalContabilizados = SumOfAll();
         }
 
         private int SumOfAll()
         {
             return _numeroInfectados + _numeroVacinados;
+        }
+
+        public void ShowInfect()
+        {
+            _service.RetornaMapeamentoInfectados();
+        }
+
+        public void ShowVacin()
+        {
+
         }
 
     }

@@ -10,6 +10,7 @@ namespace Api.Services
         void Adicionar(PessoaViewModelInput pessoaViewModelInput);
         void RetornaTotalInfectados(out int infectados);
         void RetornaTotalVacinados(out int vacinados);
+        void RetornaMapeamentoInfectados()
 
     }
 }
