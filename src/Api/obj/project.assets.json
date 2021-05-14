@@ -426,19 +426,6 @@
         "runtime": {
           "bin/placeholder/Infrastructure.dll": {}
         }
-      },
-      "Web/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/Web.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Web.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       }
     }
   },
@@ -1177,11 +1164,6 @@
       "type": "project",
       "path": "../Infrastructure/Infrastructure.csproj",
       "msbuildProject": "../Infrastructure/Infrastructure.csproj"
-    },
-    "Web/1.0.0": {
-      "type": "project",
-      "path": "../Web/Web.csproj",
-      "msbuildProject": "../Web/Web.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1191,8 +1173,7 @@
       "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 5.0.0",
       "MongoDB.Driver >= 2.12.3",
       "Newtonsoft.Json >= 13.0.1",
-      "Swashbuckle.AspNetCore >= 5.6.3",
-      "Web >= 1.0.0"
+      "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
   "packageFolders": {
@@ -1229,9 +1210,6 @@
           "projectReferences": {
             "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj": {
               "projectPath": "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj"
-            },
-            "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Web\\Web.csproj": {
-              "projectPath": "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Web\\Web.csproj"
             }
           }
         }

@@ -31,7 +31,6 @@
           "MongoDB.Driver": "2.12.3",
           "Newtonsoft.Json": "13.0.1",
           "Swashbuckle.AspNetCore": "5.6.3",
-          "Web": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -658,14 +657,6 @@
         },
         "compile": {
           "Infrastructure.dll": {}
-        }
-      },
-      "Web/1.0.0": {
-        "runtime": {
-          "Web.dll": {}
-        },
-        "compile": {
-          "Web.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -2585,11 +2576,6 @@
       "hashPath": "system.text.encoding.codepages.4.5.1.nupkg.sha512"
     },
     "Infrastructure/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Web/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

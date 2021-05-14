@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Infrasctructure.Database.Collections;
-using Web.Models;
 
 namespace Api.Repositories
 {
@@ -10,5 +9,7 @@ namespace Api.Repositories
     {
         void Create(Pessoa pessoa);
         List<Pessoa> GetAll();
+        List<Pessoa> GetInfec();
+        List<Pessoa> GetVacin();
     }
 }

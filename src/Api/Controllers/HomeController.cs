@@ -1,8 +1,6 @@
-using System;
 using Api.Services;
+using Api.Views.Home;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Web.Views.Home;
 
 namespace Api.Controllers
 {
