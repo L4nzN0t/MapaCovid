@@ -22,7 +22,7 @@ namespace Infrasctructure.Database.Collections
             this.Sexo = sexo;
             this.DataNascimento = dataNascimento;
             this.TipoPessoa = tipoPessoa;
-            this.Endereço = endereço;
+            // this.Endereço = endereço;
             } 
             catch (InvalidCastException ex)
             {

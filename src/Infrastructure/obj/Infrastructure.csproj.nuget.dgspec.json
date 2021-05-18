@@ -1,29 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj": {}
+    "c:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj": {
+    "c:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "c:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj",
-<<<<<<< HEAD
+        "projectPath": "c:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\thomas.rodrigues\\.nuget\\packages\\",
-=======
-        "packagesPath": "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\.nuget\\packages\\",
->>>>>>> 2f5654e824bd19a4dbea6d1ce1143f18c38517e9
-        "outputPath": "C:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\obj\\",
+        "outputPath": "c:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\thomas.rodrigues\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -74,11 +68,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
->>>>>>> 2f5654e824bd19a4dbea6d1ce1143f18c38517e9
         }
       }
     }

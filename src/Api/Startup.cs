@@ -1,6 +1,5 @@
 using Api.Repositories;
 using Api.Services;
-using Infrastructure.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Api.Models;
 using Api.Views.Home;
+using Infrastructure.Database;
 
 namespace Api
 {
