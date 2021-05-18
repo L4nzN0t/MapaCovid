@@ -1,4 +1,4 @@
-@model Api.Views.Cadastrar.CadastrarModel;
+@model Api.Models.PessoaViewModelInput;
 
 <!DOCTYPE html>
 <html>
@@ -86,65 +86,76 @@ async></script>
   <hr>
   <div class="w3-row-padding w3-margin-bottom div-half">
     <div style="width: 50%; margin-left: 1%; margin-top: 0px;">
-      <form asp-action="Cadastrar">
-        <fieldset class="form-group">
-        </fieldset>
-          <fieldset>
-            <label for="exampleInputEmail1">Tipo</label>
+      
+      @using (Html.BeginForm())
+      {
+        <fieldset class="form-group"></fieldset>
+        <fieldset>
+          
+          <label for="exampleInputEmail1">Tipo</label>
             <div class="form-group">
               <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+              <label asp-for="Sexo" class="form-check-label">
+                <input asp-for="Sexo" type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
                 Vacinado
               </label>
               </div>
               <div class="form-check">
-                <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                <label asp-for="Sexo" class="form-check-label">
+                  <input asp-for="Sexo" type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
                   Infectado
                 </label>
               </div>
             </div>
+            
+            <div class="form-group">
+              @Html.LabelFor(p => p.Nome)
+              @Html.TextBoxFor(p => p.Nome, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+              @Html.Label("Data de Nascimento")
+              <div class="form-date">
+                @Html.EditorFor(p => p.DataNascimento, new {@class="dtn", @type = "date"})
+              </div>
+            </div>
 
             <div class="form-group">
-              <label for="exampleInputEmail1">Nome</label>
-              <input type="text" class="form-control" id="IdNome" asp-for="" placeholder="Nome">
-              <small id="emailHelp" class="form-text text-muted">Opcional</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email</label>
-              <input type="email" class="form-control" id="IdEmail" aria-describedby="emailHelp" placeholder="example@example.com.br">
-              <small id="emailHelp" class="form-text text-muted">Opcional</small>
-            </div>
-            <label>Sexo</label>
-            <div class="form-group">
+              @Html.LabelFor(p => p.Sexo)
               <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1">
-                Masculino
-              </label>
+                <label class="form-check-label">
+                    @Html.RadioButtonFor(p => p.Sexo, "Masculino", new {@class="form-check-input"})
+                    Masculino
+                </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                  Feminino
+                    @Html.RadioButtonFor(p => p.Sexo, "Feminino", new {@class="form-check-input"})
+                    Feminino
                 </label>
               </div>
             </div>
+
+
             <div class="form-group">
-              <label for="exampleInputPassword1">Latitude</label>
+
+              @Html.Label("Latitude")
+              @Html.TextBoxFor(p => p.EndereçoViewModelInput.coordenadasViewModelInput.Localização.Latitude, new {@class="form-control"})
+              <!-- 
               <input type="text" class="form-control" id="idLatitude" placeholder="00.000000">
-              <small id="emailHelp" class="form-text text-muted">Obrigatório</small>
+              <small id="emailHelp" class="form-text text-muted">Obrigatório</small> -->
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Longitude</label>
+              @Html.Label("Longitude")
+              @Html.TextBoxFor(p => p.EndereçoViewModelInput.coordenadasViewModelInput.Localização.Latitude, new {@class="form-control"})
+              <!-- 
               <input type="text" class="form-control" id="idLongitude" placeholder="00.000000">
-              <small id="emailHelp" class="form-text text-muted">Obrigatório</small>
+              -->
             </div>
+            <fieldset>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </fieldset>
-              <button method="post" type="submit" class="btn btn-primary">Submit</button>
-            </fieldset>
-      </form>
+        </fieldset>
+      }
     </div>
   </div>
     

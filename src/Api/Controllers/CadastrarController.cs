@@ -19,16 +19,19 @@ namespace _Api.Controllers
         [Route("/Cadastrar")]
         public IActionResult Cadastrar()
         {
-            CadastrarModel cadastrar = new CadastrarModel();
-            return View(cadastrar);    
+            return View();    
         }
 
         [Route("/Cadastrar")]
         [HttpPost]
-        public IActionResult Cadastrar([FromBody]PessoaViewModelInput pessoaViewModelInput)
+        public IActionResult Cadastrar(PessoaViewModelInput pessoaViewModelInput)
         {
             try 
             {
+                if (!ModelState.IsValid)
+                {
+                    return View();
+                }
                 _service.Adicionar(pessoaViewModelInput);
                 return StatusCode(200,"Deu certo!");
             }
