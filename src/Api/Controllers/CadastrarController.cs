@@ -1,9 +1,8 @@
 using System;
 using Api.Models;
 using Api.Services;
+using Api.Views.Cadastrar;
 using Microsoft.AspNetCore.Mvc;
-
-
 
 namespace _Api.Controllers
 {
@@ -20,7 +19,8 @@ namespace _Api.Controllers
         [Route("/Cadastrar")]
         public IActionResult Cadastrar()
         {
-            return View();    
+            CadastrarModel cadastrar = new CadastrarModel();
+            return View(cadastrar);    
         }
 
         [Route("/Cadastrar")]

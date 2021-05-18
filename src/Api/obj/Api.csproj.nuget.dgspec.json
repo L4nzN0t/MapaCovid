@@ -10,14 +10,20 @@
         "projectUniqueName": "C:\\Development\\Git\\MapaCovid\\src\\Api\\Api.csproj",
         "projectName": "Api",
         "projectPath": "C:\\Development\\Git\\MapaCovid\\src\\Api\\Api.csproj",
+<<<<<<< HEAD
         "packagesPath": "C:\\Users\\thomas.rodrigues\\.nuget\\packages\\",
+=======
+        "packagesPath": "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\.nuget\\packages\\",
+>>>>>>> 2f5654e824bd19a4dbea6d1ce1143f18c38517e9
         "outputPath": "C:\\Development\\Git\\MapaCovid\\src\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\thomas.rodrigues\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -93,7 +99,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+>>>>>>> 2f5654e824bd19a4dbea6d1ce1143f18c38517e9
         }
       }
     },
@@ -103,14 +113,20 @@
         "projectUniqueName": "C:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
         "projectPath": "C:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\Infrastructure.csproj",
+<<<<<<< HEAD
         "packagesPath": "C:\\Users\\thomas.rodrigues\\.nuget\\packages\\",
+=======
+        "packagesPath": "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\.nuget\\packages\\",
+>>>>>>> 2f5654e824bd19a4dbea6d1ce1143f18c38517e9
         "outputPath": "C:\\Development\\Git\\MapaCovid\\src\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\thomas.rodrigues\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -161,7 +177,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+>>>>>>> 2f5654e824bd19a4dbea6d1ce1143f18c38517e9
         }
       }
     }

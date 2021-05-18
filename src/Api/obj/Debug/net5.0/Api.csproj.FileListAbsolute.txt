@@ -62,3 +62,4 @@ C:\DEVELOPMENT\Git\MapaCovid\src\Api\obj\Debug\net5.0\Razor\Views\Shared\_Layout
 C:\DEVELOPMENT\Git\MapaCovid\src\Api\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\DEVELOPMENT\Git\MapaCovid\src\Api\obj\Debug\net5.0\Api.RazorTargetAssemblyInfo.cs
 C:\DEVELOPMENT\Git\MapaCovid\src\Api\obj\Debug\net5.0\Api.Views.pdb
+C:\Development\Git\MapaCovid\src\Api\obj\Debug\net5.0\Razor\Views\Cadastrar\Cadastrar.cshtml.g.cs
