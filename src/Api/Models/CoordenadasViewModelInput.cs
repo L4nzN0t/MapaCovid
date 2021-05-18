@@ -1,8 +1,9 @@
+using MongoDB.Driver.GeoJsonObjectModel;
+
 namespace Api.Models
 {
     public class CoordenadasViewModelInput
     {
-        public double? Latitude {get;set;}
-        public double? Longitude {get;set;}
+        public GeoJson2DGeographicCoordinates Localização {get;set;}
     }
 }

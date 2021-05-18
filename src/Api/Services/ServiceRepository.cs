@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Api.Models;
 using Api.Repositories;
 using Infrasctructure.Database.Collections;
+using MongoDB.Driver.GeoJsonObjectModel;
 using Newtonsoft.Json;
 
 namespace Api.Services
@@ -10,6 +13,8 @@ namespace Api.Services
     {
         private readonly IRepository _repository; 
         public List<Pessoa> infectados;
+        private double[][,] arrayCoordenates {get;set;}
+
         public ServiceRepository(IRepository repository)
         {
             _repository = repository;
@@ -41,11 +46,21 @@ namespace Api.Services
             vacinados = temp.Count;
         }
 
-        public void RetornaMapeamentoInfectados()
+        public double[][,] RetornaMapeamentoInfectados()
         {
-            var temp = _repository.GetLocations();
-            var amr = temp[1].Values.ToString();
-            
+            var list = _repository.GetLocations();
+            var localizaçoes = list.Select(l => new
+            {
+                l.Latitude,
+                l.Longitude
+            }).ToList();
+            int i = 0;
+            foreach(var item in localizaçoes)
+            {
+                arrayCoordenates[i] = new double[,] {{item.Latitude, item.Longitude}};
+                i++;
+            }
+            return arrayCoordenates;
         }
 
     }

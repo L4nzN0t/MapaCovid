@@ -1,3 +1,5 @@
+using MongoDB.Driver.GeoJsonObjectModel;
+
 namespace Api.Models
 {
     public class EndereçoViewModelInput

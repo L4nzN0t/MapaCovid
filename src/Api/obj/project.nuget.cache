@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Uz9GHahfcCvupvf6ezLwswlPcQ1MQfU8GRJ3RqdmkaQ0dHdcFbVqXoMNSEuRmj0deNSImLEtaM4Rz5b2YLwZOA==",
+  "dgSpecHash": "BKo3fP8oEk5MnAsusiuEQ1Xw1kjlIOasOHF0t46ceeJzXGEQaT6I7lY+073CGFGNpCIpzuUxW6iw/aiH3ykG4A==",
   "success": true,
-  "projectFilePath": "C:\\DEVELOPMENT\\Git\\MapaCovid\\src\\Api\\Api.csproj",
+  "projectFilePath": "C:\\Development\\Git\\MapaCovid\\src\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thomas.rodrigues\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\thomas.rodrigues\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",

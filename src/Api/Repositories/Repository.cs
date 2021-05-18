@@ -77,7 +77,7 @@ namespace Api.Repositories
         {
             try
             {
-                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == Infectado)).ToList().Select(p => p.Localização).ToList();
+                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == Infectado)).ToList().Select(p => p.Endereço.Coordenadas.Localização).ToList();
             }
             catch
             {
