@@ -1,4 +1,4 @@
-@model Api.Models.PessoaViewModelInput;
+@model Api.Views.Cadastrar.CadastrarModel;
 
 <!DOCTYPE html>
 <html>
@@ -86,8 +86,78 @@ async></script>
   <hr>
   <div class="w3-row-padding w3-margin-bottom div-half">
     <div style="width: 50%; margin-left: 1%; margin-top: 0px;">
-      
-      @using (Html.BeginForm())
+      <form asp-action="/Cadastrar" method="post">
+        <fieldset class="form-group"></fieldset>
+        <fieldset>
+          <label for="TipoPessoa">Tipo</label>
+          <div class="form-group">
+            <div class="form-check">
+            <label asp-for="TipoPessoa" class="form-check-label"></label>
+              @Html.RadioButtonFor(p => p.TipoPessoa, "Vacinado", new { @class = "form-check-input"})
+              Vacinado
+            </label>
+            </div>
+            <div class="form-check">
+            <label asp-for="TipoPessoa" class="form-check-label">
+              @Html.RadioButtonFor(p => p.TipoPessoa, "Infectado", new { @class = "form-check-input"})
+              Infectado
+            </label>
+            </div>
+          </div>
+          <div class="form-group">
+              <label asp-for="Nome">Nome</label>
+              @Html.TextBoxFor(p => p.Nome, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+              <label asp-for="DataNascimento">Data de Nascimento</label>
+              <div class="form-date">
+                @Html.EditorFor(p => p.DataNascimento, new { @class = "dtn"})
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+              <label class="form-check-label">
+                @Html.RadioButtonFor(p => p.Sexo, "Masculino", new { @class = "form-check-input"})
+                Masculino
+              </label>
+              </div>
+              <div class="form-check">
+              <label class="form-check-label">
+                @Html.RadioButtonFor(p => p.Sexo, "Feminino", new { @class = "form-check-input"})
+                Feminino
+              </label>
+              </div>
+            </div>
+            <div class="form-group">
+              @Html.Label("Rua")
+              @Html.TextBoxFor(p => p.EnderecoModel.Rua, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+              @Html.Label("Numero")
+              @Html.TextBoxFor(p => p.EnderecoModel.Numero, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+              @Html.Label("Bairro")
+              @Html.TextBoxFor(p => p.EnderecoModel.Bairro, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+              @Html.Label("Cep")
+              @Html.TextBoxFor(p => p.EnderecoModel.Cep, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+              @Html.Label("Cidade")
+              @Html.TextBoxFor(p => p.EnderecoModel.Cidade, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+              @Html.Label("Estado")
+              @Html.TextBoxFor(p => p.EnderecoModel.Estado, new {@class="form-control"})
+            </div>
+          <fieldset>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </fieldset>
+        </fieldset>
+      </form>
+      @* @using (Html.BeginForm())
       {
         <fieldset class="form-group"></fieldset>
         <fieldset>
@@ -133,29 +203,34 @@ async></script>
                     Feminino
                 </label>
               </div>
-            </div>
+            </div> *@
 
-
+            @* <!--
             <div class="form-group">
-
-              @Html.Label("Latitude")
-              @Html.TextBoxFor(p => p.EndereçoViewModelInput.coordenadasViewModelInput.Localização.Latitude, new {@class="form-control"})
-              <!-- 
-              <input type="text" class="form-control" id="idLatitude" placeholder="00.000000">
-              <small id="emailHelp" class="form-text text-muted">Obrigatório</small> -->
+              @Html.Label("Rua")
+              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Rua, new {@class="form-control"})
             </div>
             <div class="form-group">
-              @Html.Label("Longitude")
-              @Html.TextBoxFor(p => p.EndereçoViewModelInput.coordenadasViewModelInput.Localização.Latitude, new {@class="form-control"})
-              <!-- 
-              <input type="text" class="form-control" id="idLongitude" placeholder="00.000000">
-              -->
+              @Html.Label("Numero")
+              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Numero, new {@class="form-control"})
             </div>
-            <fieldset>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </fieldset>
-        </fieldset>
-      }
+            <div class="form-group">
+              @Html.Label("Bairro")
+              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Bairro, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+              @Html.Label("Cep")
+              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Cep, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+              @Html.Label("Cidade")
+              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Cidade, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+              @Html.Label("Estado")
+              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Estado, new {@class="form-control"})
+            </div>
+            --> *@
     </div>
   </div>
     
@@ -169,6 +244,5 @@ async></script>
 
   <!-- End page content -->
 </div>
-
 </body>
 </html>

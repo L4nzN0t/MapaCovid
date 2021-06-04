@@ -21,42 +21,11 @@ namespace Infrastructure.Database
                 var _MongoDBClient = new MongoClient(_configuration.GetSection("ConnectionString").
                                             GetSection("DefaultConnection").Value.ToString());
                 db = _MongoDBClient.GetDatabase(_configuration["NomeBanco"]);
-                MappingClass();
             }
             catch (Exception e)
             {
                 throw new MongoException("Erro ao conectar ao banco de dados!", e);
             }
         }
-
-        void MappingClass()
-        {
-            if (!BsonClassMap.IsClassMapRegistered(typeof(Pessoa)))
-            {
-                BsonClassMap.RegisterClassMap<Coordenadas>();
-                BsonClassMap.RegisterClassMap<Endereço>();
-                BsonClassMap.RegisterClassMap<Pessoa>(x =>
-                {
-                    x.SetIgnoreExtraElements(true);
-                    x.SetDiscriminator("Endereço");
-                    x.MapIdField(i => i.Id).SetIsRequired(true).SetIdGenerator(ObjectIdGenerator.Instance);
-                    x.MapField(i => i.TipoPessoa).SetIsRequired(true);
-                    x.MapField(i => i.Nome);
-                    x.MapField(i => i.Sexo).SetIsRequired(true);
-                    x.MapField(i => i.DataNascimento);
-                    
-                    // x.MapField(i => i.Rua);
-                    // x.MapField(i => i.Bairro);
-                    // x.MapField(i => i.Cidade);
-                    // x.MapField(i => i.Estado);
-                    // x.MapField(i => i.Cep);
-                    // x.MapField(i => i.Numero);
-                    // x.MapField(i => i.Latitude).SetIsRequired(true);
-                    // x.MapField(i => i.Longitude).SetIsRequired(true);
-                });
-            }
-        }
-
-        
     }
 }

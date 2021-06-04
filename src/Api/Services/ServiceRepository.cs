@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Api.Models;
+using System.Text.Json;
 using Api.Repositories;
+using Api.Views.Cadastrar;
 using Infrasctructure.Database.Collections;
-using MongoDB.Driver.GeoJsonObjectModel;
-using Newtonsoft.Json;
 
 namespace Api.Services
 {
@@ -20,17 +18,17 @@ namespace Api.Services
             _repository = repository;
         }
 
-        public void Adicionar(PessoaViewModelInput pessoaViewModelInput) 
+        public void Adicionar(CadastrarModel cadastrarModel) 
         {
             try 
             {
-                var json = JsonConvert.SerializeObject(pessoaViewModelInput);
-                var obj = JsonConvert.DeserializeObject<Pessoa>(json);
-                _repository.Create(obj);
+                
+                Pessoa objPessoa = (Pessoa) cadastrarModel;
+                _repository.Create(objPessoa);
             } 
-            catch (JsonSerializationException ex)
+            catch (JsonException ex)
             {
-                throw new JsonSerializationException("Erro ao converter dados", ex);
+                throw new JsonException("Erro ao converter dados", ex);
             }
         }
 

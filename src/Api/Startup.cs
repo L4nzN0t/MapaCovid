@@ -9,6 +9,8 @@ using Microsoft.OpenApi.Models;
 using Api.Models;
 using Api.Views.Home;
 using Infrastructure.Database;
+using Api.Views.Cadastrar;
+using Infrastructure.Database.Persistence;
 
 namespace Api
 {
@@ -27,12 +29,12 @@ namespace Api
             services.AddSingleton<IMongoConnect,MongoDatabase>();
             services.AddScoped<IRepository,Repository>();
             services.AddScoped<IServiceRepository,ServiceRepository>();
-            services.AddScoped<PessoaViewModelInput>();
-            services.AddScoped<EndereçoViewModelInput>();
-            services.AddScoped<CoordenadasViewModelInput>();
+            services.AddSingleton<CadastrarModel>();
+            services.AddScoped<CadastrarEnderecoModel>();
             services.AddScoped<IndexModel>();
             services.AddMvc();
             services.AddControllers();
+            MongoDBPersistence.Configure();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
@@ -58,7 +60,11 @@ namespace Api
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                // endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                );
             });
         }
     }

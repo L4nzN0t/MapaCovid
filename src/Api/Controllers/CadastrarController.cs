@@ -24,7 +24,7 @@ namespace _Api.Controllers
 
         [Route("/Cadastrar")]
         [HttpPost]
-        public IActionResult Cadastrar(PessoaViewModelInput pessoaViewModelInput)
+        public IActionResult Cadastrar([FromForm] CadastrarModel cadastrarModel)
         {
             try 
             {
@@ -32,7 +32,7 @@ namespace _Api.Controllers
                 {
                     return View();
                 }
-                _service.Adicionar(pessoaViewModelInput);
+                _service.Adicionar(cadastrarModel);
                 return StatusCode(200,"Deu certo!");
             }
             catch (Exception ex)

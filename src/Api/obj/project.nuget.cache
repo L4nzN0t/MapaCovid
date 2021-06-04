@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "tjH9TAKQauOT7/ARbywQQhQ8Y145gx5NHxyxQBI9H4zStuy2hmGiIBE4deHo3lZNNxu9ZuwDQ9yyOYdMZGR6Yg==",
+  "dgSpecHash": "vsjWKEgndw1kX0KBurxw1JXU3jM1fI3i0b8Z0CaVO/BphEbvvqW5xClidn30lDBamG8tJCiUAOi8/xs2bRnVjw==",
   "success": true,
   "projectFilePath": "C:\\Development\\Git\\MapaCovid\\src\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
+    "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\.nuget\\packages\\googlemaps.locationservices\\1.2.0.5\\googlemaps.locationservices.1.2.0.5.nupkg.sha512",
     "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",
     "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.0\\microsoft.aspnetcore.authentication.openidconnect.5.0.0.nupkg.sha512",
     "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

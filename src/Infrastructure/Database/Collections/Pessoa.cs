@@ -12,23 +12,6 @@ namespace Infrasctructure.Database.Collections
         public DateTime DataNascimento {get;set;}
         public string TipoPessoa {get;set;}
         public Endereço Endereço {get;set;}
-
-        public Pessoa(ObjectId id, string nome, string sexo, DateTime dataNascimento, string tipoPessoa)
-        {
-            try 
-            {
-            this.Id = id;
-            this.Nome = nome;
-            this.Sexo = sexo;
-            this.DataNascimento = dataNascimento;
-            this.TipoPessoa = tipoPessoa;
-            // this.Endereço = endereço;
-            } 
-            catch (InvalidCastException ex)
-            {
-                throw new InvalidCastException("Erro ao converter dados para inserçao no banco", ex);
-            }
-            
-        }
+        
     }
 }
