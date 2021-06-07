@@ -69,7 +69,7 @@ namespace Api.Repositories
             }
             catch
             {
-                throw new MongoException("Erro ao inserir buscar informações");
+                throw new MongoException("Erro ao buscar informações");
             }
         }
 

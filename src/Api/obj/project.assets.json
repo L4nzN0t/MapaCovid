@@ -11,13 +11,16 @@
           "lib/netstandard2.1/DnsClient.dll": {}
         }
       },
-      "GoogleMaps.LocationServices/1.2.0.5": {
+      "gmaps-api-net/0.32.0": {
         "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
         "compile": {
-          "lib/netstandard2.0/GoogleMaps.LocationServices.dll": {}
+          "lib/netstandard1.3/Google.Maps.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/GoogleMaps.LocationServices.dll": {}
+          "lib/netstandard1.3/Google.Maps.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.0": {
@@ -461,16 +464,17 @@
         "lib/netstandard2.1/DnsClient.xml"
       ]
     },
-    "GoogleMaps.LocationServices/1.2.0.5": {
-      "sha512": "0j3RL5+acxYgQNz72JdXJ1nUKxMGaY+6UvrOIOxZfp0qpJOUmo/ivCAm53atbnuy0z3vrZK+j9mZifh35UBqag==",
+    "gmaps-api-net/0.32.0": {
+      "sha512": "1NpLt91KY0/AqGIpKmNbCNOj6uZjPbirdsnQJAGFHVLR3xHT2BrPsbVSy0LX2GZbaYuhijvourud9eQ4Q9QTyw==",
       "type": "package",
-      "path": "googlemaps.locationservices/1.2.0.5",
+      "path": "gmaps-api-net/0.32.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "googlemaps.locationservices.1.2.0.5.nupkg.sha512",
-        "googlemaps.locationservices.nuspec",
-        "lib/netstandard2.0/GoogleMaps.LocationServices.dll"
+        "gmaps-api-net.0.32.0.nupkg.sha512",
+        "gmaps-api-net.nuspec",
+        "lib/net461/Google.Maps.dll",
+        "lib/netstandard1.3/Google.Maps.dll"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.0": {
@@ -1189,19 +1193,18 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "GoogleMaps.LocationServices >= 1.2.0.5",
       "Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.0",
       "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 5.0.0",
       "MongoDB.Driver >= 2.12.3",
       "Newtonsoft.Json >= 13.0.1",
-      "Swashbuckle.AspNetCore >= 5.6.3"
+      "Swashbuckle.AspNetCore >= 5.6.3",
+      "gmaps-api-net >= 0.32.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\thomas.rodrigues\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -1209,16 +1212,14 @@
       "projectUniqueName": "C:\\Development\\Git\\MapaCovid\\src\\Api\\Api.csproj",
       "projectName": "Api",
       "projectPath": "C:\\Development\\Git\\MapaCovid\\src\\Api\\Api.csproj",
-      "packagesPath": "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\thomas.rodrigues\\.nuget\\packages\\",
       "outputPath": "C:\\Development\\Git\\MapaCovid\\src\\Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\thomas.rodrigues.NTBHMDC090747\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\thomas.rodrigues\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1249,10 +1250,6 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "GoogleMaps.LocationServices": {
-            "target": "Package",
-            "version": "[1.2.0.5, )"
-          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[5.0.0, )",
@@ -1278,6 +1275,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[5.6.3, )"
+          },
+          "gmaps-api-net": {
+            "target": "Package",
+            "version": "[0.32.0, )"
           }
         },
         "imports": [
@@ -1298,7 +1299,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

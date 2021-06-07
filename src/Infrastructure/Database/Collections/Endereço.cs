@@ -7,23 +7,25 @@ namespace Infrastructure.Database.Collections
 {
     public class Endereço
     {
+        [BsonElement("Rua")]
         public string Rua {get;set;}
-        public string Bairro {get;set;}
-        public int Numero {get;set;}
-        public string Cep {get;set;}
-        public string Cidade {get;set;}
-        public string Estado {get;set;}
-        public Coordenadas Coordenadas {get;set;}
 
-        // public Endereço(string rua, string bairro, int numero, string cep, string cidade, string estado, double latitude, double longitude)
-        // {
-        //     this.Rua = rua;
-        //     this.Bairro = bairro;
-        //     this.Numero = numero;
-        //     this.Cep = cep;
-        //     this.Cidade = cidade;
-        //     this.Estado = estado;
-        //     this.Coordenadas = new Coordenadas(new MongoDB.Driver.GeoJsonObjectModel.GeoJson2DGeographicCoordinates(latitude, longitude));
-        // }
+        [BsonElement("Bairro")]
+        public string Bairro {get;set;}
+
+        [BsonElement("Numero")]
+        public int Numero {get;set;}
+
+        [BsonElement("Cep")]
+        public string Cep {get;set;}
+
+        [BsonElement("Cidade")]
+        public string Cidade {get;set;}
+
+        [BsonElement("Estado")]
+        public string Estado {get;set;}
+
+        [BsonElement("Coordenadas")]
+        public Coordenadas Coordenadas {get;set;}
     }
 }

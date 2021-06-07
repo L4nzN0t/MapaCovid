@@ -9,15 +9,7 @@
       "DEBUG",
       "NET",
       "NET5_0",
-      "NETCOREAPP",
-      "NET5_0_OR_GREATER",
-      "NETCOREAPP1_0_OR_GREATER",
-      "NETCOREAPP1_1_OR_GREATER",
-      "NETCOREAPP2_0_OR_GREATER",
-      "NETCOREAPP2_1_OR_GREATER",
-      "NETCOREAPP2_2_OR_GREATER",
-      "NETCOREAPP3_0_OR_GREATER",
-      "NETCOREAPP3_1_OR_GREATER"
+      "NETCOREAPP"
     ],
     "languageVersion": "9.0",
     "platform": "",
@@ -33,13 +25,13 @@
     ".NETCoreApp,Version=v5.0": {
       "Api/1.0.0": {
         "dependencies": {
-          "GoogleMaps.LocationServices": "1.2.0.5",
           "Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.0",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "5.0.0",
           "MongoDB.Driver": "2.12.3",
           "Newtonsoft.Json": "13.0.1",
           "Swashbuckle.AspNetCore": "5.6.3",
+          "gmaps-api-net": "0.32.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -342,15 +334,18 @@
           "lib/netstandard2.1/DnsClient.dll": {}
         }
       },
-      "GoogleMaps.LocationServices/1.2.0.5": {
+      "gmaps-api-net/0.32.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
         "runtime": {
-          "lib/netstandard2.0/GoogleMaps.LocationServices.dll": {
-            "assemblyVersion": "1.2.0.5",
-            "fileVersion": "1.2.0.5"
+          "lib/netstandard1.3/Google.Maps.dll": {
+            "assemblyVersion": "0.32.0.0",
+            "fileVersion": "0.32.0.0"
           }
         },
         "compile": {
-          "lib/netstandard2.0/GoogleMaps.LocationServices.dll": {}
+          "lib/netstandard1.3/Google.Maps.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.0": {
@@ -2396,12 +2391,12 @@
       "path": "dnsclient/1.4.0",
       "hashPath": "dnsclient.1.4.0.nupkg.sha512"
     },
-    "GoogleMaps.LocationServices/1.2.0.5": {
+    "gmaps-api-net/0.32.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0j3RL5+acxYgQNz72JdXJ1nUKxMGaY+6UvrOIOxZfp0qpJOUmo/ivCAm53atbnuy0z3vrZK+j9mZifh35UBqag==",
-      "path": "googlemaps.locationservices/1.2.0.5",
-      "hashPath": "googlemaps.locationservices.1.2.0.5.nupkg.sha512"
+      "sha512": "sha512-1NpLt91KY0/AqGIpKmNbCNOj6uZjPbirdsnQJAGFHVLR3xHT2BrPsbVSy0LX2GZbaYuhijvourud9eQ4Q9QTyw==",
+      "path": "gmaps-api-net/0.32.0",
+      "hashPath": "gmaps-api-net.0.32.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.0": {
       "type": "package",
