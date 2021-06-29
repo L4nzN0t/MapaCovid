@@ -1,5 +1,3 @@
-using System;
-using MongoDB.Bson;
 using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace Infrastructure.Database.Collections

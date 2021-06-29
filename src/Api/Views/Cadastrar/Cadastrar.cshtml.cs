@@ -2,10 +2,11 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using Api.Models;
 using Infrasctructure.Database.Collections;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Api.Views.Cadastrar
 {
-    public class CadastrarModel
+    public class CadastrarModel 
     {
         public string Nome { get; set; }
 
@@ -38,6 +39,11 @@ namespace Api.Views.Cadastrar
             pessoa.Endereço.Cidade = cadastrarModel.EnderecoModel.Cidade;
             pessoa.Endereço.Estado = cadastrarModel.EnderecoModel.Estado;
             return pessoa;
+        }
+
+        public CadastrarModel()
+        {
+
         }
     }
 }

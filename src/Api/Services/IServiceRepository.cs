@@ -12,7 +12,6 @@ namespace Api.Services
         void Adicionar(CadastrarModel cadastrarModel);
         void RetornaTotalInfectados(out int infectados);
         void RetornaTotalVacinados(out int vacinados);
-        double[][,] RetornaMapeamentoInfectados();
 
     }
 }

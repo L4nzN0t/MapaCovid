@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Api.Models;
 using Api.Services;
 using Api.Views.Cadastrar;
@@ -22,18 +23,20 @@ namespace _Api.Controllers
             return View();    
         }
 
-        [Route("/Cadastrar")]
         [HttpPost]
+        [Route("/Cadastrar")]
+        [ValidateAntiForgeryToken]
         public IActionResult Cadastrar([FromForm] CadastrarModel cadastrarModel)
         {
             try 
             {
                 if (!ModelState.IsValid)
                 {
-                    return View();
+                    ModelState.AddModelError(nameof(PessoaModel), "The erros are founded!");
+                    return View(ModelState);
                 }
                 _service.Adicionar(cadastrarModel);
-                return StatusCode(200,"Deu certo!");
+                return View("Views/Home/Index.cshtml");
             }
             catch (Exception ex)
             {
@@ -41,5 +44,27 @@ namespace _Api.Controllers
                 throw new Exception("Erro desconhecido!", ex);
             }
         }
+
+        // [Route("/Cadastrar")]
+        // [HttpPost]
+        // public IActionResult Cadastrar([FromForm] CadastrarModel cadastrarModel)
+        // {
+        //     try 
+        //     {
+        //         if (!ModelState.IsValid)
+        //         {
+        //             return View(cadastrarModel);
+        //         }
+        //         _service.Adicionar(cadastrarModel);
+        //         return View("Views/Home/Index.cshtml");
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         return StatusCode(400,"Erro!");
+        //         throw new Exception("Erro desconhecido!", ex);
+        //     }
+        // }
+
+
     }
 }

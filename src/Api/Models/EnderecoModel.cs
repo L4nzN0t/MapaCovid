@@ -1,23 +1,28 @@
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Api.Models
 {
-    public class CadastrarEnderecoModel
+    public class EnderecoModel
     {
+        [Required(ErrorMessage = "Campo obrigatório!")]
         public string Rua { get; set; }
+        
 
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string Bairro { get; set; }
 
+
         [Required(ErrorMessage = "Campo obrigatório!")]
         public int Numero { get; set; }
+
 
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string Cep { get; set; }
 
+
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string Cidade { get; set; }
+
 
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string Estado { get; set; }
