@@ -68,7 +68,7 @@ namespace Api.Services
 
         private void BuscarCoordenadasPorEndereço(ref Pessoa pessoa)
         {
-            string apikey = "AIzaSyD81ZGnjS4FiizsxG-UQQCc499rNV8fgyQ"; 
+            string apikey = ""; 
             string url = "https://maps.googleapis.com/maps/api/geocode/json?address={0}+{1}+{2},+{3},+{4}&oe=utf8&sensor=false&key={5}";
             
             string address = string.Format(url, pessoa.Endereço.Numero, pessoa.Endereço.Rua, pessoa.Endereço.Bairro,
