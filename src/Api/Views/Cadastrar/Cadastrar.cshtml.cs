@@ -2,7 +2,6 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using Api.Models;
 using Infrasctructure.Database.Collections;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Api.Views.Cadastrar
 {
@@ -10,18 +9,18 @@ namespace Api.Views.Cadastrar
     {
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         public string Sexo { get; set; }
         
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         public string TipoPessoa {get;set;}
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataNascimento { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         public CadastrarEnderecoModel EnderecoModel { get; set; }
 
         public static explicit operator Pessoa (CadastrarModel cadastrarModel)
@@ -41,9 +40,5 @@ namespace Api.Views.Cadastrar
             return pessoa;
         }
 
-        public CadastrarModel()
-        {
-
-        }
     }
 }

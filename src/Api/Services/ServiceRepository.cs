@@ -23,11 +23,11 @@ namespace Api.Services
             _repository = repository;
         }
 
-        public void Adicionar(CadastrarModel cadastrarModel) 
+        public void Adicionar(PessoaModel pessoaModel) 
         {
             try 
             {
-                Pessoa objPessoa = (Pessoa) cadastrarModel;
+                Pessoa objPessoa = (Pessoa) pessoaModel;
                 BuscarCoordenadasPorEndereço(ref objPessoa);
                 _repository.Create(objPessoa);
             } 

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
+    [ApiController]
     public class HomeController : Controller
     {
         private readonly IServiceRepository _service;

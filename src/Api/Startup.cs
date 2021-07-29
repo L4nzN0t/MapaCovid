@@ -36,7 +36,7 @@ namespace Api
             services.AddScoped<EnderecoModel>();
             services.AddScoped<IndexModel>();
             services.AddMvc();
-            services.AddControllers();
+            services.AddControllersWithViews();
             MongoDBPersistence.Configure();
             services.AddSwaggerGen(c =>
             {

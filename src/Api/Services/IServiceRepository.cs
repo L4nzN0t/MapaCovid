@@ -9,7 +9,7 @@ namespace Api.Services
 {
     public interface IServiceRepository
     {
-        void Adicionar(CadastrarModel cadastrarModel);
+        void Adicionar(PessoaModel pessoaModel);
         void RetornaTotalInfectados(out int infectados);
         void RetornaTotalVacinados(out int vacinados);
 

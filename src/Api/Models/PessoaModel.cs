@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Infrasctructure.Database.Collections;
 
@@ -16,10 +17,9 @@ namespace Api.Models
 
         [Required(ErrorMessage = "Campo obrigatório!")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Range(typeof(DateTime), "01-01-1900", "31-12-2019" , ErrorMessage = "Data inválida!")]
         public DateTime DataNascimento { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
         public EnderecoModel EnderecoModel { get; set; }
 
         public static explicit operator Pessoa (PessoaModel pessoaModel)
@@ -32,7 +32,7 @@ namespace Api.Models
             pessoa.Endereço = new Infrastructure.Database.Collections.Endereço();
             pessoa.Endereço.Rua = pessoaModel.EnderecoModel.Rua;
             pessoa.Endereço.Bairro = pessoaModel.EnderecoModel.Bairro;
-            pessoa.Endereço.Numero = pessoaModel.EnderecoModel.Numero;
+            pessoa.Endereço.Numero = Convert.ToInt32(pessoaModel.EnderecoModel.Numero); //adicionar validação do numero
             pessoa.Endereço.Cep = pessoaModel.EnderecoModel.Cep;
             pessoa.Endereço.Cidade = pessoaModel.EnderecoModel.Cidade;
             pessoa.Endereço.Estado = pessoaModel.EnderecoModel.Estado;

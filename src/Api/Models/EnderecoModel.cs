@@ -13,7 +13,7 @@ namespace Api.Models
 
 
         [Required(ErrorMessage = "Campo obrigatório!")]
-        public int Numero { get; set; }
+        public string Numero { get; set; }
 
 
         [Required(ErrorMessage = "Campo obrigatório!")]
