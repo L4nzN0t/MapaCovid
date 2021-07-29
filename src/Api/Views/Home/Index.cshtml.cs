@@ -1,7 +1,5 @@
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using Api.Services;
+using Infrastructure.Database.Connection;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Api.Views.Home
@@ -16,11 +14,21 @@ namespace Api.Views.Home
 
         public IndexModel (IServiceRepository service)
         {
-            _service = service;
-            _service.RetornaTotalInfectados(out _numeroInfectados);
-            _service.RetornaTotalVacinados(out _numeroVacinados);
-            _totalContabilizados = SumOfAll();
-            _coordenadas = _service.RetornaMapeamentoInfectados();
+            if (TestMongoConnection.IsConnected)
+            {
+                _service = service;
+                _service.RetornaTotalInfectados(out _numeroInfectados);
+                _service.RetornaTotalVacinados(out _numeroVacinados);
+                _totalContabilizados = SumOfAll();
+                //_coordenadas = _service.RetornaMapeamentoInfectados();
+            }
+            else
+            {
+                _numeroInfectados = 0;
+                _numeroVacinados = 0;
+                _totalContabilizados = 0;
+            }
+            
         }
 
         private int SumOfAll()

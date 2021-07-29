@@ -5,22 +5,22 @@ using Infrasctructure.Database.Collections;
 
 namespace Api.Views.Cadastrar
 {
-    public class CadastrarModel
+    public class CadastrarModel 
     {
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         public string Sexo { get; set; }
         
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         public string TipoPessoa {get;set;}
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataNascimento { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         public CadastrarEnderecoModel EnderecoModel { get; set; }
 
         public static explicit operator Pessoa (CadastrarModel cadastrarModel)
@@ -39,5 +39,6 @@ namespace Api.Views.Cadastrar
             pessoa.Endereço.Estado = cadastrarModel.EnderecoModel.Estado;
             return pessoa;
         }
+
     }
 }

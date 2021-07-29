@@ -1,5 +1,6 @@
-@model Api.Views.Cadastrar.CadastrarModel;
+@using Microsoft.AspNetCore.Mvc.ModelBinding
 
+@model Api.Views.Cadastrar.CadastrarModel;
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,12 +89,13 @@ async></script>
     <div style="width: 50%; margin-left: 1%; margin-top: 0px;">
       <form asp-action="/Cadastrar" method="post">
         <fieldset class="form-group"></fieldset>
-        <fieldset>
+        <fieldset class="form-group"></fieldset>
           <label for="TipoPessoa">Tipo</label>
           <div class="form-group">
             <div class="form-check">
             <label asp-for="TipoPessoa" class="form-check-label"></label>
               @Html.RadioButtonFor(p => p.TipoPessoa, "Vacinado", new { @class = "form-check-input"})
+              
               Vacinado
             </label>
             </div>
@@ -107,6 +109,7 @@ async></script>
           <div class="form-group">
               <label asp-for="Nome">Nome</label>
               @Html.TextBoxFor(p => p.Nome, new {@class="form-control"})
+              @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
               <label asp-for="DataNascimento">Data de Nascimento</label>
@@ -157,80 +160,6 @@ async></script>
           </fieldset>
         </fieldset>
       </form>
-      @* @using (Html.BeginForm())
-      {
-        <fieldset class="form-group"></fieldset>
-        <fieldset>
-          
-          <label for="exampleInputEmail1">Tipo</label>
-            <div class="form-group">
-              <div class="form-check">
-              <label asp-for="Sexo" class="form-check-label">
-                <input asp-for="Sexo" type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                Vacinado
-              </label>
-              </div>
-              <div class="form-check">
-                <label asp-for="Sexo" class="form-check-label">
-                  <input asp-for="Sexo" type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                  Infectado
-                </label>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              @Html.LabelFor(p => p.Nome)
-              @Html.TextBoxFor(p => p.Nome, new {@class="form-control"})
-            </div>
-            <div class="form-group">
-              @Html.Label("Data de Nascimento")
-              <div class="form-date">
-                @Html.EditorFor(p => p.DataNascimento, new {@class="dtn", @type = "date"})
-              </div>
-            </div>
-
-            <div class="form-group">
-              @Html.LabelFor(p => p.Sexo)
-              <div class="form-check">
-                <label class="form-check-label">
-                    @Html.RadioButtonFor(p => p.Sexo, "Masculino", new {@class="form-check-input"})
-                    Masculino
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                    @Html.RadioButtonFor(p => p.Sexo, "Feminino", new {@class="form-check-input"})
-                    Feminino
-                </label>
-              </div>
-            </div> *@
-
-            @* <!--
-            <div class="form-group">
-              @Html.Label("Rua")
-              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Rua, new {@class="form-control"})
-            </div>
-            <div class="form-group">
-              @Html.Label("Numero")
-              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Numero, new {@class="form-control"})
-            </div>
-            <div class="form-group">
-              @Html.Label("Bairro")
-              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Bairro, new {@class="form-control"})
-            </div>
-            <div class="form-group">
-              @Html.Label("Cep")
-              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Cep, new {@class="form-control"})
-            </div>
-            <div class="form-group">
-              @Html.Label("Cidade")
-              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Cidade, new {@class="form-control"})
-            </div>
-            <div class="form-group">
-              @Html.Label("Estado")
-              @Html.TextBoxFor(p => p.EndereçoViewModelInput.Estado, new {@class="form-control"})
-            </div>
-            --> *@
     </div>
   </div>
     

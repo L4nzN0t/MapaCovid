@@ -9,8 +9,10 @@ namespace Infrastructure.Database
     {
         public static void Configure()
         {
-            BsonClassMap.RegisterClassMap<Pessoa>(x => 
+            if (!BsonClassMap.IsClassMapRegistered(typeof(Pessoa)))
             {
+                BsonClassMap.RegisterClassMap<Pessoa>(x => 
+                {
                 x.SetIgnoreExtraElements(true);
                 x.MapIdProperty(i => i.Id).SetIsRequired(true).SetIdGenerator(ObjectIdGenerator.Instance);
                 x.MapProperty(i => i.TipoPessoa).SetElementName("Tipo").SetIsRequired(true);
@@ -18,7 +20,8 @@ namespace Infrastructure.Database
                 x.MapProperty(i => i.Sexo).SetElementName("Sexo").SetIsRequired(true);
                 x.MapProperty(i => i.DataNascimento).SetElementName("Data de Nascimento").SetIsRequired(true);
                 x.MapProperty(i => i.Endereço).SetElementName("Endereço");
-            });
+                });
+            }
         }
     }
 }

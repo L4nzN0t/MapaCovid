@@ -11,6 +11,7 @@ using Api.Views.Home;
 using Infrastructure.Database;
 using Api.Views.Cadastrar;
 using Infrastructure.Database.Persistence;
+using Infrastructure.Database.Connection;
 
 namespace Api
 {
@@ -29,11 +30,13 @@ namespace Api
             services.AddSingleton<IMongoConnect,MongoDatabase>();
             services.AddScoped<IRepository,Repository>();
             services.AddScoped<IServiceRepository,ServiceRepository>();
-            services.AddSingleton<CadastrarModel>();
+            services.AddScoped<CadastrarModel>();
             services.AddScoped<CadastrarEnderecoModel>();
+            services.AddScoped<PessoaModel>();
+            services.AddScoped<EnderecoModel>();
             services.AddScoped<IndexModel>();
             services.AddMvc();
-            services.AddControllers();
+            services.AddControllersWithViews();
             MongoDBPersistence.Configure();
             services.AddSwaggerGen(c =>
             {

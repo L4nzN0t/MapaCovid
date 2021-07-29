@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Infrasctructure.Database.Collections;
 using Infrastructure.Database;
+using Infrastructure.Database.Connection;
 using MongoDB.Driver;
 using MongoDB.Driver.GeoJsonObjectModel;
 
@@ -12,7 +13,6 @@ namespace Api.Repositories
     {
         private const string Infectado = "Infectado";
         private const string Vacinado = "Vacinado";
-
         private readonly IMongoConnect _mongoConnect;
         private readonly IMongoCollection<Pessoa> _List;
         private readonly FilterDefinition<Pessoa> _filter;
@@ -22,7 +22,7 @@ namespace Api.Repositories
         {
             _mongoConnect = mongoConnect;
             _List = _mongoConnect.db.GetCollection<Pessoa>(typeof(Pessoa).Name);
-            _filter = Builders<Pessoa>.Filter.Empty;       
+            _filter = Builders<Pessoa>.Filter.Empty;  
         }
 
         public void Create(Pessoa _pessoa)
@@ -45,7 +45,7 @@ namespace Api.Repositories
             }
             catch
             {
-                throw new MongoException("Erro ao inserir buscar informações");
+                throw new MongoException("Erro ao inserir informações");
             }
         }
 
@@ -57,7 +57,7 @@ namespace Api.Repositories
             }
             catch
             {
-                throw new MongoException("Erro ao inserir buscar informações");
+                throw new MongoException("Erro ao buscar informações");
             }
         }
 
@@ -81,7 +81,7 @@ namespace Api.Repositories
             }
             catch
             {
-                throw new MongoException("Erro ao inserir buscar informações");
+                throw new MongoException("Erro ao buscar informações");
             }
         }
     }
