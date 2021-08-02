@@ -12,6 +12,7 @@ namespace Api.Repositories
         List<Pessoa> GetAll();
         List<Pessoa> GetInfec();
         List<Pessoa> GetVacin();
-        List<GeoJson2DGeographicCoordinates> GetLocations();
+        List<GeoJson2DGeographicCoordinates> GetLocationsInfectados();
+        List<Pessoa> GetLocations();
     }
 }

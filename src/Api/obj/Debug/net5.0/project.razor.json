@@ -15634,6 +15634,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Development\\Git\\MapaCovid\\src\\Api\\Views\\Home\\Infectado.cshtml",
+      "TargetPath": "Views\\Home\\Infectado.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Development\\Git\\MapaCovid\\src\\Api\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"

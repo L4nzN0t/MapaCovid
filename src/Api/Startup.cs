@@ -9,9 +9,8 @@ using Microsoft.OpenApi.Models;
 using Api.Models;
 using Api.Views.Home;
 using Infrastructure.Database;
-using Api.Views.Cadastrar;
 using Infrastructure.Database.Persistence;
-using Infrastructure.Database.Connection;
+using Api.Services.Maps;
 
 namespace Api
 {
@@ -30,8 +29,7 @@ namespace Api
             services.AddSingleton<IMongoConnect,MongoDatabase>();
             services.AddScoped<IRepository,Repository>();
             services.AddScoped<IServiceRepository,ServiceRepository>();
-            services.AddScoped<CadastrarModel>();
-            services.AddScoped<CadastrarEnderecoModel>();
+            services.AddScoped<IMapService, MapService>();
             services.AddScoped<PessoaModel>();
             services.AddScoped<EnderecoModel>();
             services.AddScoped<IndexModel>();

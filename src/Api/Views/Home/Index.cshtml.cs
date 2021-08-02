@@ -8,7 +8,8 @@ namespace Api.Views.Home
     {
         private readonly IServiceRepository _service;
         public int _numeroInfectados, _numeroVacinados, _totalContabilizados;
-        public double[][,] _coordenadas;
+        public double[][,] _coordenadasInfectados;
+        public double[][,] _coordenadasVacinados;
         public double[] latitude;
         public double[] longitude;
 
@@ -19,8 +20,9 @@ namespace Api.Views.Home
                 _service = service;
                 _service.RetornaTotalInfectados(out _numeroInfectados);
                 _service.RetornaTotalVacinados(out _numeroVacinados);
+                _service.RetornaCoordenadasInfectados(out _coordenadasInfectados);
+                _service.RetornaCoordenadasInfectados(out _coordenadasVacinados);
                 _totalContabilizados = SumOfAll();
-                //_coordenadas = _service.RetornaMapeamentoInfectados();
             }
             else
             {
@@ -34,16 +36,6 @@ namespace Api.Views.Home
         private int SumOfAll()
         {
             return _numeroInfectados + _numeroVacinados;
-        }
-
-        public void LatLong()
-        {
-            int i = 0;
-            foreach(var item in _coordenadas)
-            {
-                latitude[i] = item[0,0];
-                longitude[i] = item[0,0];
-            }
         }
 
     }

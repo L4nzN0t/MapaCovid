@@ -1,8 +1,6 @@
 using System;
-using System.Threading.Tasks;
 using Api.Models;
 using Api.Services;
-using Api.Views.Cadastrar;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _Api.Controllers
@@ -34,7 +32,7 @@ namespace _Api.Controllers
                     return View(pessoaModel);
                 }
                 _service.Adicionar(pessoaModel);
-                return View("Views/Home/Index.cshtml");
+                return Redirect("/Index");
             }
             catch (Exception)
             {

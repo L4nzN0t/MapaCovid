@@ -22,5 +22,13 @@ namespace Api.Controllers
             IndexModel index = new IndexModel(_service);
             return View(index);    
         }
+        
+        [Route("/Home/Infectado")]
+        public IActionResult Infectado()
+        {
+            IndexModel index = new IndexModel(_service);
+            
+            return View(index);
+        }
     }
 }
