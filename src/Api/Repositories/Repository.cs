@@ -73,11 +73,23 @@ namespace Api.Repositories
             }
         }
 
-        public List<GeoJson2DGeographicCoordinates> GetLocations()
+        public List<GeoJson2DGeographicCoordinates> GetLocationsInfectados()
         {
             try
             {
                 return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == Infectado)).ToList().Select(p => p.Endereço.Coordenadas.Localização).ToList();
+            }
+            catch
+            {
+                throw new MongoException("Erro ao buscar informações");
+            }
+        }
+
+        public List<Pessoa> GetLocations()
+        {
+            try
+            {
+                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Empty).ToList();
             }
             catch
             {

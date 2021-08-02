@@ -1,7 +1,4 @@
-
-using System.Collections.Generic;
 using Api.Models;
-using Api.Views.Cadastrar;
 using Infrasctructure.Database.Collections;
 using MongoDB.Driver.GeoJsonObjectModel;
 
@@ -12,6 +9,8 @@ namespace Api.Services
         void Adicionar(PessoaModel pessoaModel);
         void RetornaTotalInfectados(out int infectados);
         void RetornaTotalVacinados(out int vacinados);
+        void RetornaCoordenadasInfectados(out double[][,] coordenadasInfectado);
+        void RetornaCoordenadasVacinados(out double[][,] coordenadasVacinados);
 
     }
 }

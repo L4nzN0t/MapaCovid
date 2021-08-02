@@ -7,20 +7,21 @@ using System.Net.Http;
 using System.Text.Json;
 using Api.Models;
 using Api.Repositories;
-using Api.Views.Cadastrar;
+using Api.Services.Maps;
 using Infrasctructure.Database.Collections;
 
 namespace Api.Services
 {
     public class ServiceRepository : IServiceRepository
     {
-        private readonly IRepository _repository; 
-        public List<Pessoa> infectados;
-        private double[][,] arrayCoordenates {get;set;}
+        private readonly IRepository _repository;
+        private readonly IMapService _mapservice;
+        private readonly double[][,] _coordenates;
 
-        public ServiceRepository(IRepository repository)
+        public ServiceRepository(IRepository repository, IMapService mapService)
         {
             _repository = repository;
+            _mapservice = mapService;
         }
 
         public void Adicionar(PessoaModel pessoaModel) 
@@ -49,22 +50,17 @@ namespace Api.Services
             vacinados = temp.Count;
         }
 
-        // public double[][,] RetornaMapeamentoInfectados()
-        // {
-        //     var list = _repository.GetLocations();
-        //     var localizaçoes = list.Select(l => new
-        //     {
-        //         l.Latitude,
-        //         l.Longitude
-        //     }).ToList();
-        //     int i = 0;
-        //     foreach(var item in localizaçoes)
-        //     {
-        //         arrayCoordenates[i] = new double[,] {{item.Latitude, item.Longitude}};
-        //         i++;
-        //     }
-        //     return arrayCoordenates;
-        // }
+        public void RetornaCoordenadasInfectados(out double[][,] coordenadasInfectados)
+        {
+            var temp = _mapservice.coordenadasInfectados;
+            coordenadasInfectados = temp;
+        }
+
+        public void RetornaCoordenadasVacinados(out double[][,] coordenadasVacinados)
+        {
+            var temp = _mapservice.coordenadasVacinados;
+            coordenadasVacinados = temp;
+        }
 
         private void BuscarCoordenadasPorEndereço(ref Pessoa pessoa)
         {
