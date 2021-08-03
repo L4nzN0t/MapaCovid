@@ -10,6 +10,7 @@ namespace Api.Services.Maps
         public double[][,] coordenadasInfectados {get;set;}
         public double[][,] coordenadasVacinados {get;set;}
         private readonly IRepository _repository;
+        
         public MapService(IRepository repository)
         {
             _repository = repository;
@@ -19,7 +20,7 @@ namespace Api.Services.Maps
         public void ArrayLocations()
         {
             
-            List<Pessoa> list = _repository.GetLocations();
+            List<Pessoa> list = _repository.GetAll();
             var infectados = list.Where(p => p.TipoPessoa == "Infectado").ToList().Select(p => p.Endereço.Coordenadas.Localização).ToList();
             var vacinados = list.Where(p => p.TipoPessoa == "Vacinado").ToList().Select(p => p.Endereço.Coordenadas.Localização).ToList();
 

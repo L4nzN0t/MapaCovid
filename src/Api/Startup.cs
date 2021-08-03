@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Api.Models;
-using Api.Views.Home;
 using Infrastructure.Database;
 using Infrastructure.Database.Persistence;
 using Api.Services.Maps;

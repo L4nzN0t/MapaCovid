@@ -1,6 +1,5 @@
 using Api.Services;
-using Api.Views.Home;
-using Infrastructure.Database.Connection;
+using Api.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers

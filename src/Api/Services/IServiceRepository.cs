@@ -1,6 +1,4 @@
 using Api.Models;
-using Infrasctructure.Database.Collections;
-using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace Api.Services
 {

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace Api.Services.Maps
 {
