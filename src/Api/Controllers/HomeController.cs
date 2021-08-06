@@ -1,7 +1,7 @@
 using Api.Services;
-using Api.Views.Home;
-using Infrastructure.Database.Connection;
+using Api.Models;
 using Microsoft.AspNetCore.Mvc;
+using Api.Services.Maps;
 
 namespace Api.Controllers
 {
@@ -9,9 +9,11 @@ namespace Api.Controllers
     public class HomeController : Controller
     {
         private readonly IServiceRepository _service;
-        public HomeController(IServiceRepository service)
+        private readonly IMapService _mapService;
+        public HomeController(IServiceRepository service, IMapService mapService)
         {
             _service = service;
+            _mapService = mapService;
         }
 
         [Route("/")]
@@ -27,7 +29,6 @@ namespace Api.Controllers
         public IActionResult Infectado()
         {
             IndexModel index = new IndexModel(_service);
-            
             return View(index);
         }
     }

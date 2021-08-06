@@ -1,5 +1,4 @@
 using Infrasctructure.Database.Collections;
-using Infrastructure.Database.Collections;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
 
