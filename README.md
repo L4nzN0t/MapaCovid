@@ -30,3 +30,25 @@ A utilização da API do Google Maps segue a mesma ideia do MongoDB. Você pode 
 
 Dessa vez, pra utilizar a API do Google Maps você vai precisar de uma API Key. É bem simples, mas sem ela, nada de mapinha. Link 👇
 <https://developers.google.com/maps/documentation/javascript/get-api-key>
+
+
+##
+Os dois ajustes devem ser feitos no arquivos appsettings.json, nos campos _DefaultConnection_ e _ApiKey_
+
+```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Information",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionString": {
+    "DefaultConnection": ""
+  },
+  "NomeBanco": "MapeamentoCovid",
+  "ApiKey": ""
+}
+```
