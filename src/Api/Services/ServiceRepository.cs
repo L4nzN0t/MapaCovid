@@ -1,40 +1,34 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text.Json;
+using Api.Models;
 using Api.Repositories;
-using Api.Views.Cadastrar;
+using Api.Services.Maps;
 using Infrasctructure.Database.Collections;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace Api.Services
 {
     public class ServiceRepository : IServiceRepository
     {
-        private readonly IRepository _repository; 
-        public List<Pessoa> infectados;
-        private double[][,] arrayCoordenates {get;set;}
+        private readonly IRepository _repository;
+        private readonly IMapService _mapservice;
 
-        public ServiceRepository(IRepository repository)
+        public ServiceRepository(IRepository repository, IMapService mapService)
         {
             _repository = repository;
+            _mapservice = mapService;
         }
 
-        public void Adicionar(CadastrarModel cadastrarModel) 
+        public void Adicionar(PessoaModel pessoaModel) 
         {
             try 
             {
-                Pessoa objPessoa = (Pessoa) cadastrarModel;
-                BuscarCoordenadasPorEndereço(ref objPessoa);
+                Pessoa objPessoa = (Pessoa) pessoaModel;
+                _mapservice.BuscarCoordenadasPorEndereço(ref objPessoa);
                 _repository.Create(objPessoa);
             } 
-            catch (System.Text.Json.JsonException ex)
+            catch (InvalidCastException ex)
             {
-                throw new System.Text.Json.JsonException("Erro ao converter dados", ex);
+                throw new InvalidCastException("Erro ao converter dados", ex);
             }
         }
 
@@ -50,47 +44,18 @@ namespace Api.Services
             vacinados = temp.Count;
         }
 
-        public double[][,] RetornaMapeamentoInfectados()
+        public void RetornaCoordenadasInfectados(out double[][,] coordenadasInfectados)
         {
-            var list = _repository.GetLocations();
-            var localizaçoes = list.Select(l => new
-            {
-                l.Latitude,
-                l.Longitude
-            }).ToList();
-            int i = 0;
-            foreach(var item in localizaçoes)
-            {
-                arrayCoordenates[i] = new double[,] {{item.Latitude, item.Longitude}};
-                i++;
-            }
-            return arrayCoordenates;
+            var temp = _mapservice.coordenadasInfectados;
+            coordenadasInfectados = temp;
         }
 
-        private void BuscarCoordenadasPorEndereço(ref Pessoa pessoa)
+        public void RetornaCoordenadasVacinados(out double[][,] coordenadasVacinados)
         {
-            string apikey = "AIzaSyD81ZGnjS4FiizsxG-UQQCc499rNV8fgyQ"; 
-            string url = "https://maps.googleapis.com/maps/api/geocode/json?address={0}+{1}+{2},+{3},+{4}&oe=utf8&sensor=false&key={5}";
-            
-            string address = string.Format(url, pessoa.Endereço.Numero, pessoa.Endereço.Rua, pessoa.Endereço.Bairro,
-                                                         pessoa.Endereço.Cidade, pessoa.Endereço.Estado, apikey);
-
-
-            using (HttpClient clientHttp = new HttpClient())
-            {
-                var response = clientHttp.GetStringAsync(address);
-                var result = response.Result.ToString();
-
-                JObject json = JObject.Parse(result);
-                var location = json.SelectToken("results.geometry.location");
-                var lat = location.Value<double>("lat");
-
-            }
-
-            
+            var temp = _mapservice.coordenadasVacinados;
+            coordenadasVacinados = temp;
         }
 
+        
     }
-
-    
 }

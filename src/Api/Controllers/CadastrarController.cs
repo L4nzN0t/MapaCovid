@@ -1,12 +1,10 @@
 using System;
 using Api.Models;
 using Api.Services;
-using Api.Views.Cadastrar;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _Api.Controllers
-{
-    [ApiController]
+{    
     public class CadastrarController : Controller
     {
         private readonly IServiceRepository _service;
@@ -17,28 +15,28 @@ namespace _Api.Controllers
         }
 
         [Route("/Cadastrar")]
-        public IActionResult Cadastrar()
+        public IActionResult CreateCadastrar()
         {
             return View();    
         }
 
-        [Route("/Cadastrar")]
         [HttpPost]
-        public IActionResult Cadastrar([FromForm] CadastrarModel cadastrarModel)
+        [Route("/Cadastrar")]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateCadastrar([FromForm] PessoaModel pessoaModel)
         {
             try 
             {
                 if (!ModelState.IsValid)
                 {
-                    return View();
+                    return View(pessoaModel);
                 }
-                _service.Adicionar(cadastrarModel);
-                return StatusCode(200,"Deu certo!");
+                _service.Adicionar(pessoaModel);
+                return Redirect("/Index");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(400,"Erro!");
-                throw new Exception("Erro desconhecido!", ex);
+                return BadRequest();
             }
         }
     }

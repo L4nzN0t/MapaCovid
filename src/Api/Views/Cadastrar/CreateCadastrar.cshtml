@@ -1,0 +1,99 @@
+@model Api.Models.PessoaModel;
+    <!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:200px;margin-top:10px;">
+    <!-- Header -->
+    <header class="w3-container" style="padding-top:10px">
+        <h3><b><i class="fa fa-users"></i>  Cadastramento</b></h3>
+    </header>
+    <hr>
+    @using (Html.BeginForm("CreateCadastrar", "Cadastrar", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="w3-row-padding w3-margin-bottom div-half">
+            <div style="width: 50%; margin-left: 1%; margin-top: 0px;">
+                <fieldset class="form-group"></fieldset>
+                <fieldset class="form-group">
+                    <label for="TipoPessoa">Tipo</label>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label asp-for="TipoPessoa" class="form-check-label">
+                                @Html.RadioButtonFor(p => p.TipoPessoa, "Vacinado", new { @class = "form-check-input" })
+                                Vacinado
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label asp-for="TipoPessoa" class="form-check-label">
+                                @Html.RadioButtonFor(p => p.TipoPessoa, "Infectado", new { @class = "form-check-input" })
+                                Infectado
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(p => p.TipoPessoa, "", new {@class="text-danger"})
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Nome")
+                        @Html.TextBoxFor(p => p.Nome, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DataNascimento">Data de Nascimento</label>
+                        <div class="form-date">
+                            @Html.EditorFor(p => p.DataNascimento, new { @class = "dtn" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.DataNascimento,"", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                @Html.RadioButtonFor(p => p.Sexo, "Masculino", new { @class = "form-check-input" })
+                                Masculino
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                @Html.RadioButtonFor(p => p.Sexo, "Feminino", new { @class = "form-check-input" })
+                                Feminino
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Rua")
+                        @Html.TextBoxFor(p => p.EnderecoModel.Rua, new {@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.EnderecoModel.Rua,"", new {@class="text-danger"})
+                        
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Numero")
+                        @Html.TextBoxFor(p => p.EnderecoModel.Numero, new {@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.EnderecoModel.Numero, "", new {@class="text-danger"})
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Bairro")
+                        @Html.TextBoxFor(p => p.EnderecoModel.Bairro, new {@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.EnderecoModel.Bairro, "", new {@class="text-danger"})
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Cep")
+                        @Html.TextBoxFor(p => p.EnderecoModel.Cep, new {@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.EnderecoModel.Cep, "", new {@class="text-danger"})
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Cidade")
+                        @Html.TextBoxFor(p => p.EnderecoModel.Cidade, new {@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.EnderecoModel.Cidade, "", new {@class="text-danger"})
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Estado")
+                        @Html.TextBoxFor(p => p.EnderecoModel.Estado, new {@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.EnderecoModel.Estado, "", new {@class="text-danger"})
+                    </div>
+                    <fieldset>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </fieldset>
+                </fieldset>
+            </div>
+        </div>
+    }
+    <hr>
+</div>

@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Infrasctructure.Database.Collections;
 using Infrastructure.Database;
 using MongoDB.Driver;
-using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace Api.Repositories
 {
@@ -12,17 +10,22 @@ namespace Api.Repositories
     {
         private const string Infectado = "Infectado";
         private const string Vacinado = "Vacinado";
-
         private readonly IMongoConnect _mongoConnect;
         private readonly IMongoCollection<Pessoa> _List;
         private readonly FilterDefinition<Pessoa> _filter;
+        private readonly List<Pessoa> _ListaPessoas;
+        private readonly List<Pessoa> _ListaInfectados;
+        private readonly List<Pessoa> _ListaVacinados;
 
 
         public Repository(IMongoConnect mongoConnect)
         {
             _mongoConnect = mongoConnect;
             _List = _mongoConnect.db.GetCollection<Pessoa>(typeof(Pessoa).Name);
-            _filter = Builders<Pessoa>.Filter.Empty;       
+            _filter = Builders<Pessoa>.Filter.Empty;
+            _ListaPessoas =  _List.Find<Pessoa>(_filter).ToList();
+            _ListaInfectados = _ListaPessoas.Where(p => p.TipoPessoa == Infectado).ToList();
+            _ListaVacinados = _ListaPessoas.Where(p => p.TipoPessoa == Vacinado).ToList();
         }
 
         public void Create(Pessoa _pessoa)
@@ -41,11 +44,11 @@ namespace Api.Repositories
         {
             try
             {
-                return _List.Find<Pessoa>(_filter).ToList();
+                return _ListaPessoas;
             }
             catch
             {
-                throw new MongoException("Erro ao inserir buscar informações");
+                throw new MongoException("Erro ao inserir informações");
             }
         }
 
@@ -53,19 +56,7 @@ namespace Api.Repositories
         {
             try
             {
-                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == Infectado)).ToList();
-            }
-            catch
-            {
-                throw new MongoException("Erro ao inserir buscar informações");
-            }
-        }
-
-        public List<Pessoa> GetVacin()
-        {
-            try
-            {
-                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == Vacinado)).ToList();
+                return _ListaInfectados;
             }
             catch
             {
@@ -73,16 +64,17 @@ namespace Api.Repositories
             }
         }
 
-        public List<GeoJson2DGeographicCoordinates> GetLocations()
+        public List<Pessoa> GetVacin()
         {
             try
             {
-                return _List.Find<Pessoa>(Builders<Pessoa>.Filter.Where(p => p.TipoPessoa == Infectado)).ToList().Select(p => p.Endereço.Coordenadas.Localização).ToList();
+                return _ListaVacinados;
             }
             catch
             {
-                throw new MongoException("Erro ao inserir buscar informações");
+                throw new MongoException("Erro ao buscar informações");
             }
         }
+    
     }
 }

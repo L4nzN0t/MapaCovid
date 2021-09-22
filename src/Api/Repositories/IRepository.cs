@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Infrasctructure.Database.Collections;
-using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace Api.Repositories
 {
@@ -12,6 +10,5 @@ namespace Api.Repositories
         List<Pessoa> GetAll();
         List<Pessoa> GetInfec();
         List<Pessoa> GetVacin();
-        List<GeoJson2DGeographicCoordinates> GetLocations();
     }
 }

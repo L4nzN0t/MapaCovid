@@ -7,10 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Api.Models;
-using Api.Views.Home;
 using Infrastructure.Database;
-using Api.Views.Cadastrar;
 using Infrastructure.Database.Persistence;
+using Api.Services.Maps;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace Api
 {
@@ -26,19 +27,8 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IMongoConnect,MongoDatabase>();
-            services.AddScoped<IRepository,Repository>();
-            services.AddScoped<IServiceRepository,ServiceRepository>();
-            services.AddSingleton<CadastrarModel>();
-            services.AddScoped<CadastrarEnderecoModel>();
-            services.AddScoped<IndexModel>();
-            services.AddMvc();
-            services.AddControllers();
-            MongoDBPersistence.Configure();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
-            });
+            MongoDBPersistence.Configure(Configuration);
+            ConfigureDependency.Inject(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +42,12 @@ namespace Api
             }
 
             app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(@"C:\Development\Git\MapaCovid\src", "Maps")),
+                RequestPath = "/maps"
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -65,6 +61,27 @@ namespace Api
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                 );
+            });
+        }
+    }
+
+    public static class ConfigureDependency
+    {
+        public static void Inject(IServiceCollection services)
+        {
+            services.AddSingleton<IMongoConnect,MongoDatabase>();
+            services.AddScoped<IRepository,Repository>();
+            services.AddScoped<IServiceRepository,ServiceRepository>();
+            services.AddScoped<IMapService, MapService>();
+            services.AddScoped<PessoaModel>();
+            services.AddScoped<EnderecoModel>();
+            services.AddScoped<IndexModel>();
+            services.AddMvc();
+            services.AddControllersWithViews();
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
         }
     }

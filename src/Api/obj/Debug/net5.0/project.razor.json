@@ -15624,13 +15624,28 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Development\\Git\\MapaCovid\\src\\Api\\Views\\Cadastrar\\Cadastrar.cshtml",
-      "TargetPath": "Views\\Cadastrar\\Cadastrar.cshtml",
+      "FilePath": "c:\\Development\\Git\\MapaCovid\\src\\Api\\Views\\Cadastrar\\CreateCadastrar.cshtml",
+      "TargetPath": "Views\\Cadastrar\\CreateCadastrar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Development\\Git\\MapaCovid\\src\\Api\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Development\\Git\\MapaCovid\\src\\Api\\Views\\Home\\Infectado.cshtml",
+      "TargetPath": "Views\\Home\\Infectado.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "c:\\Development\\Git\\MapaCovid\\src\\Api\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Development\\Git\\MapaCovid\\src\\Api\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
