@@ -1,5 +1,3 @@
-using System;
-using Infrasctructure.Database.Collections;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
