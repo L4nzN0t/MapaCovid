@@ -11,10 +11,12 @@ Quando criei o projeto, pensei em como seria interessante avaliar os casos de Co
 
 
 ### MongoDB
-![](dist/mongodb-leaf_32x32@2x.png)
+![](images/mongodb-icon.png)
 
-Utilizei um MongoDB pra guardar as informações. Você pode criar uma conta gratuita no link abaixo. Vale a pena!!
-https://account.mongodb.com/account/register?n=%2Fv2%2F6076f12d4ad5554a08508044&nextHash=%23clusters 
+Como database utilizei um MongoDB. 
+No link a seguir você pode criar uma conta gratuita, direto na cloud. Vale a pena dar uma olhada!!
+<https://account.mongodb.com/account/register?n=%2Fv2%2F6076f12d4ad5554a08508044&nextHash=%23clusters>
+
 Lembrando que sem uma string de conexão, não tem jeito de salvar as informações das pessoas cadastradas 😁
 
 
@@ -23,8 +25,8 @@ Lembrando que sem uma string de conexão, não tem jeito de salvar as informaç�
 ![Google Maps](https://maps.gstatic.com/tactile/settings/logo_maps-2x.png)
 
 A utilização da API do Google Maps segue a mesma ideia do MongoDB. Você pode criar uma conta gratuita no Google Cloud Plataform (link abaixo). 
-```
-https://cloud.google.com/
-```
+
+<https://cloud.google.com/>
+
 Dessa vez, pra utilizar a API do Google Maps você vai precisar de uma API Key. É bem simples, mas sem ela, nada de mapinha. Link 👇
 <https://developers.google.com/maps/documentation/javascript/get-api-key>
