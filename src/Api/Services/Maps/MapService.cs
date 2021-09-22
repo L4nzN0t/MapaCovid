@@ -27,8 +27,8 @@ namespace Api.Services.Maps
 
         public void ArrayLocations()
         {
-            
             List<Pessoa> list = _repository.GetAll();
+
             var infectados = list.Where(p => p.TipoPessoa == "Infectado").ToList().Select(p => p.Endereço.Coordenadas.Localização).ToList();
             var vacinados = list.Where(p => p.TipoPessoa == "Vacinado").ToList().Select(p => p.Endereço.Coordenadas.Localização).ToList();
 
@@ -47,11 +47,23 @@ namespace Api.Services.Maps
             coordenadasInfectados = new double[locInfectados.Count][,];
             coordenadasVacinados = new double[locVacinados.Count][,];
 
-            for (int x = 0; x < locInfectados.Count; x++)
+            if (infectados.Count <= 0)
             {
-                coordenadasInfectados[x] = new double[,] {{locInfectados[x].Latitude, locInfectados[x].Longitude}};
-                coordenadasVacinados[x] = new double[,] {{locVacinados[x].Latitude, locVacinados[x].Longitude}};
+                coordenadasInfectados = null;
+            } 
+            else if (vacinados.Count <= 0)
+            {
+                coordenadasVacinados = null;
             }
+            else
+            {
+                for (int x = 0; x < list.Count; x++)
+                {
+                    coordenadasInfectados[x] = new double[,] {{locInfectados[x].Latitude, locInfectados[x].Longitude}};
+                    coordenadasVacinados[x] = new double[,] {{locVacinados[x].Latitude, locVacinados[x].Longitude}};
+                }
+            }
+            
 
             string jsonResult = JsonConvert.SerializeObject(locInfectados);
             string path = $"C:/Development/Git/MapaCovid/src/Maps/locations.json";

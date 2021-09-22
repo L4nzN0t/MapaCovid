@@ -2,6 +2,7 @@ using Api.Services;
 using Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Api.Services.Maps;
+using Infrastructure.Database.Connection;
 
 namespace Api.Controllers
 {
@@ -12,8 +13,13 @@ namespace Api.Controllers
         private readonly IMapService _mapService;
         public HomeController(IServiceRepository service, IMapService mapService)
         {
-            _service = service;
-            _mapService = mapService;
+            if (TestMongoConnection.IsConnected)
+            {
+                _service = service;
+                _mapService = mapService;
+            } else {
+                throw new System.Exception("MongoDB is not connected");
+            }
         }
 
         [Route("/")]

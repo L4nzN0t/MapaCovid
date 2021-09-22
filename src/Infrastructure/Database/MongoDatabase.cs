@@ -20,27 +20,12 @@ namespace Infrastructure.Database
                 var _MongoDBClient = new MongoClient(_configuration.GetSection("ConnectionString").
                                             GetSection("DefaultConnection").Value.ToString());
                 db = _MongoDBClient.GetDatabase(_configuration["NomeBanco"]);
-                TestConnection();
             }
             catch (Exception e) 
             {
                 throw new Exception("Erro no Banco de Dados", e);
             }
             
-        }
-
-        private void TestConnection()
-        {
-            int count = 0;
-            TestMongoConnection.IsConnected = true;
-            while (db.Client.Cluster.Description.State.ToString() == "Disconnected")
-            {
-                Thread.Sleep(100);
-                if (count++ >= 50) {
-                    TestMongoConnection.IsConnected = false;
-                    break;
-                }
-            }
         }
         
     }
