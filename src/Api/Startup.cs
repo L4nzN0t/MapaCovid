@@ -27,6 +27,7 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            MongoDBPersistence.Configure(Configuration);
             ConfigureDependency.Inject(services);
         }
 
@@ -69,7 +70,6 @@ namespace Api
         public static void Inject(IServiceCollection services)
         {
             services.AddSingleton<IMongoConnect,MongoDatabase>();
-            MongoDBPersistence.Configure();
             services.AddScoped<IRepository,Repository>();
             services.AddScoped<IServiceRepository,ServiceRepository>();
             services.AddScoped<IMapService, MapService>();
@@ -78,6 +78,7 @@ namespace Api
             services.AddScoped<IndexModel>();
             services.AddMvc();
             services.AddControllersWithViews();
+            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
